@@ -10,17 +10,15 @@ const container = document.getElementById('boxes')
 const createBoxes = (amount) => {
   
   let size = 30
+  let html = ''
 
   for (let i = 0; i < amount; i++) {
-    const box = document.createElement('div')
-    box.style.width = size + 'px'
-    box.style.height = size + 'px'
-    box.style.backgroundColor = getRandomHexColor()
-
-    container.append(box)
-
+    const color = getRandomHexColor();
+    html += `<div style="width: ${size}px; height: ${size}px; background-color: ${color};"></div>`;
     size += 10
   }
+
+  container.innerHTML = html
 }
 
 const destroyBoxes = () => container.innerHTML = ''

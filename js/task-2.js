@@ -15,12 +15,8 @@ const images = [
 
 const container = document.querySelector('.gallery')
 
-images.forEach(image => {
-  const li = document.createElement('li')
-  const img = document.createElement('img')
-    img.setAttribute('alt', image.alt)
-    img.setAttribute('src', image.url)
-  
-  li.append(img)
-  container.append(li)
-})
+const html = images.map(image => 
+  `<li><img src="${image.url}" alt="${image.alt}"></li>`
+).join('');
+
+container.insertAdjacentHTML('beforeend', html);
